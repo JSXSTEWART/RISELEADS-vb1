@@ -35,14 +35,43 @@ View your app in AI Studio: https://ai.studio/apps/drive/1A4rcrX-mBEmXF0S2YtCiCr
    ```
 3. Access the app at `http://localhost:3000`
 
+> **Note:** If the Docker build fails due to network timeouts during `npm install`, try building again or use the local build approach below.
+
 ### Using Docker directly
 
 1. Build the Docker image:
    ```bash
    docker build -t riseleads-app .
    ```
+   
+   If the build fails due to network issues, retry the command or use:
+   ```bash
+   docker build --network=host -t riseleads-app .
+   ```
+
 2. Run the container:
    ```bash
    docker run -p 3000:3000 -e GEMINI_API_KEY=your_api_key_here riseleads-app
    ```
 3. Access the app at `http://localhost:3000`
+
+### Alternative: Local Build + Docker
+
+If you experience persistent network issues during Docker build:
+
+1. Install dependencies locally:
+   ```bash
+   npm install
+   ```
+2. Build locally:
+   ```bash
+   npm run build
+   ```
+3. Build Docker image (will use local build):
+   ```bash
+   docker build -t riseleads-app .
+   ```
+4. Run the container:
+   ```bash
+   docker run -p 3000:3000 riseleads-app
+   ```
