@@ -1,0 +1,9 @@
+{
+  "name": "Rise Local Lead Maker",
+  "description": "Professional AI-powered local business lead generation and outreach platform.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
