@@ -18,3 +18,31 @@ View your app in AI Studio: https://ai.studio/apps/drive/1A4rcrX-mBEmXF0S2YtCiCr
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+## Run with Docker
+
+**Prerequisites:** Docker and Docker Compose
+
+### Using Docker Compose (Recommended)
+
+1. Set your `GEMINI_API_KEY` environment variable:
+   ```bash
+   export GEMINI_API_KEY=your_api_key_here
+   ```
+2. Build and run the container:
+   ```bash
+   docker-compose up --build
+   ```
+3. Access the app at `http://localhost:3000`
+
+### Using Docker directly
+
+1. Build the Docker image:
+   ```bash
+   docker build -t riseleads-app .
+   ```
+2. Run the container:
+   ```bash
+   docker run -p 3000:3000 -e GEMINI_API_KEY=your_api_key_here riseleads-app
+   ```
+3. Access the app at `http://localhost:3000`
